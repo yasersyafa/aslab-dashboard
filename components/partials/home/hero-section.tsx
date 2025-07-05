@@ -1,6 +1,5 @@
 'use client'
 
-import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import Star9 from "@/components/stars/s9"
 
@@ -20,11 +19,9 @@ export default function HeroSection() {
                 </h1>
                 <p className="font-base text-xl max-w-4xl text-center">We are the Assistant Team — students who contribute to learning, collaboration, and creative projects in the Game Tech Studio Lab.</p>
             </div>
-            <Link href={'/registration'}>
-                <Button size={'cta'} className="text-xl font-bold cursor-pointer">
-                    Join Us
-                </Button>
-            </Link>
+            <Button size={'cta'} className="text-xl font-bold cursor-pointer">
+                Get To Know Us
+            </Button>
         </section>
     )
 }

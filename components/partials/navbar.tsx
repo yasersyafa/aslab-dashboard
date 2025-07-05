@@ -1,9 +1,14 @@
 'use client'
 
 import Link from "next/link"
+import ContactForm from "./home/contact-form"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "../ui/dialog"
 import { Button } from "../ui/button"
+import { useState } from "react"
 
 export default function Navbar() {
+    const [open, setOpen] = useState<boolean>(false)
+
     return (
         <nav className="fixed top-0 left-0 right-0 bg-white w-full border-b-4 border-black py-5">
             <div className="container mx-auto flex justify-between items-center">
@@ -12,18 +17,19 @@ export default function Navbar() {
                     <Link href={'/'}>GameTech Lab</Link>
                 </h1>
 
-                {/* navigation links in desktop */}
                 <ul className="space-x-12 flex items-center font-base text-base">
-                    <li className="hover:underline">
-                        <Link href={'/games'}>Games</Link>
-                    </li>
-                    <li className="hover:underline">
-                        <Link href={'/events'}>Events</Link>
-                    </li>
                     <li>
-                        <Button className="cursor-pointer">
-                            Contact Us
-                        </Button>
+                        <Dialog open={open} onOpenChange={setOpen}>
+                            <DialogTrigger asChild>
+                                <Button>Contact Us</Button>
+                            </DialogTrigger>
+                            <DialogContent>
+                                <DialogHeader>
+                                    <DialogTitle>Contact Form</DialogTitle>
+                                </DialogHeader>
+                                <ContactForm onSuccess={() => setOpen(false)} />
+                            </DialogContent>
+                        </Dialog>
                     </li>
                 </ul>
             </div>
