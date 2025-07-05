@@ -23,6 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${archivo.className} antialiased`}
+        style={{ backgroundImage: `url('/pattern.png')`, backgroundRepeat: 'repeat' }}
       >
         <Navbar />
         {children}
